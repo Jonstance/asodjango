@@ -5,12 +5,8 @@ from django.db import models
 class Books(models.Model):
     bookName = models.CharField(max_length=200)
     bookDetails = models.CharField(max_length=1000)
-    bookAmount = models.IntegerField(max_length=200)
-
-
-
-
-
+    bookAmount = models.IntegerField(default=0)
+    bookLink = models.URLField(blank=True)
 
 
 class Blog(models.Model):
