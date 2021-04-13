@@ -127,21 +127,22 @@
         <div class="clearfix"></div>
         <!--end title-->
         
-        
+        {% if posts %}
+        {% for post in posts %}
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
+            <div class="ce-post-img"> <a href="{% url 'post_detail' post.slug  %}">
               <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
+              </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
             <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Donated Books</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
+              <h5 class="less-mar-1 title"><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></h5>
+             <p>{{ post.body }}</p>
              <div class="date-info-box">
              
              
              <div class="box-left">
              <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 27, 2021
+             {{post.posted}}
              </div>
              
              <div class="box-right">
@@ -153,164 +154,14 @@
             </div>
           </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <p>There are no posts.</p>
+        {% endif %}
         <!--end item-->
-        
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="#">
-              <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="http://via.placeholder.com/1000x800" alt="" class="img-responsive"/> </div>
-            <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="#">Plans for Presidency</a></h5>
-             <p>We have donated thousands of boos to differents schools in and out of thge coomunity. This has facilitated learning for many students.</p>
-             <div class="date-info-box">
-             
-             
-             <div class="box-left">
-             <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-              November 29, 2021
-             </div>
-             
-             <div class="box-right">
-             <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; 15 
-             </div>
-             
-             
-             </div>
-            </div>
-          </div>
-        </div>
-        <!--end item-->
+       
+       
+       
         
        
         

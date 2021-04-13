@@ -22,4 +22,4 @@ class Blog(models.Model):
 
 
     def get_absolute_url(self):
-            return ('view_blog_post', None, {'slug': self.slug})
+            return ('view_post', None, {'slug': self.slug})

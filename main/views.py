@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
 # Create your views here.
 from main.models import Blog
@@ -8,10 +9,10 @@ def index (request):
     return render(request, 'main/index.html', {
         'posts': Blog.objects.all()[:5]
     })
-def view_post(request, slug):
-    return render(request, 'main/view_post.html', {
-        'post': get_object_or_404(Blog, slug=slug)
-    })
+
+class ViewPost(generic.DetailView):
+    model = Blog
+    template_name = 'main/view_post.html'
 
 def about (request):
     return render(request, 'main/about.html')

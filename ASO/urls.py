@@ -24,8 +24,7 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'),
     path('about/', views.about, name='about'),
     path('books/', views.books, name='books'),
-    url(r'^$', views.index),
-    url(r'^blog/view/(?P<slug>[^\.]+).html', views.view_post, name='view_blog_post'),
+    path('<slug:slug>/', views.ViewPost.as_view(), name='post_detail'),
 
     ]
 
