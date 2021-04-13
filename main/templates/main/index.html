@@ -235,12 +235,12 @@
         {% for post in posts %}
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="ce-feature-box-34 margin-bottom">
-            <div class="ce-post-img"> <a href="{% url 'post_detail' post.slug  %}">
+            <div class="ce-post-img"> <a href="{% url 'view_post' post.slug %}">
               <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
               </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
             <div class="text-box">
-              <h5 class="less-mar-1 title"><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></h5>
-             <p>{{ post.body }}</p>
+              <h5 class="less-mar-1 title"><a href="{% url 'view_post' post.slug %}">{{ post.title }}</a></h5>
+             <p>{{ post.body | slice:100 }}</p>
              <div class="date-info-box">
              
              

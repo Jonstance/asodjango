@@ -17,9 +17,10 @@ class Blog(models.Model):
     fimage = models.FileField()
     posted = models.DateField(db_index=True, auto_now_add=True)
 
-    def __unicode__(self):
-            return '%s' % self.title
-
-
-    def get_absolute_url(self):
-            return ('view_post', None, {'slug': self.slug})
+class Comment(models.Model):
+    post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    

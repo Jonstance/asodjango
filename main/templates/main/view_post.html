@@ -77,7 +77,6 @@
 
   </head>
   <body>
-    {% block content %}
     <div class="wrapper-boxed ">
         <div class="site-wrapper">
             <div class="col-md-12 nopadding">
@@ -130,10 +129,10 @@
                 <div class="clearfix"></div>
                 <!--end title-->
                 
-                  <br/>
+            
+
+            
                 <div>
-                  <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
-                    
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="ce-feature-box-34 margin-bottom">
@@ -141,8 +140,8 @@
                         <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
                         </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
                       <div class="text-box">
-                        <h5 class="less-mar-1 title"><a href="#">{% block title %} {{ object.title }} {% endblock title %}</a></h5>
-                       <p>{{ object.body | safe }}</p>
+                        <h5 class="less-mar-1 title">{{ post.title }}</h5>
+                       <p>{{ post.body }}</p>
                        <div class="date-info-box">
                        
                        
@@ -160,9 +159,35 @@
                       </div>
                     </div>
                   </div>               
-                   
-                    
-                  </div>
+                    <h2 class="subtitle"> Comments </h2>
+
+                    {%for comment in post.comments.all %}
+                    <article class="media">
+                        <div class="media-content">
+                            <p>
+                                <strong>{{ comment.name }}</strong> <small>{{ comment.date_added|timesince }} ago</small>
+                                <br>
+                                {{ comment.body}}
+                            </p>
+                        </div>
+                    </article>
+                    {%empty%}
+                    <div class="notification">
+                        No Comments yet......
+                    </div>
+                {% endfor %}
+                <br>
+                <h2 class="subtitle">Add Comment</h2>
+
+                <form method="POST" action=".">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
             </div>
@@ -364,6 +389,6 @@ The following part can be removed on Server for On Demand Loading) -->
 <script src=" {% static 'assets/js/animations/js/animations.min.js' %} " type="text/javascript"></script>
 <script src=" {% static 'assets/js/animations/js/appear.min.js' %} " type="text/javascript"></script>
 <script src=" {% static 'assets/js/functions/functions.js' %} "></script>
-{%endblock%}
+
   </body>
 </html>
