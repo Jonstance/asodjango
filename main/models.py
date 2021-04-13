@@ -7,6 +7,7 @@ class Books(models.Model):
     bookDetails = models.CharField(max_length=1000)
     bookAmount = models.IntegerField(default=0)
     bookLink = models.URLField(blank=True)
+    bookImage = models.FileField(default="")
 
 
 class Blog(models.Model):
