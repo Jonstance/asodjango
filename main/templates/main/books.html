@@ -127,16 +127,16 @@
                 
                   <br/>
                 <div>
-                  <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
+          
                     
-            {% if novels.all %}
+         {% if novels.all %}
             {% for novel in novels.all %}
             <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="ce-feature-box-34 margin-bottom">
-                <div class="ce-post-img"> <a href="{{ novel.bookLink.url }}">
+                <div class="ce-post-img"> <a href="{{ novel.bookLink }}">
                   </a> <img src="{{ novel.bookImage.url }}" alt="" class="img-responsive"/> </div>
                 <div class="text-box">
-                  <h5 class="less-mar-1 title"><a href="{{ novel.bookLink.url }}">{{ novel.bookName }}</a></h5>
+                  <h5 class="less-mar-1 title"><a href="{{ novel.bookLink }}">{{ novel.bookName }}</a></h5>
                  <p>{{ novel.bookDetails  | slice:100  }}</p>
                  <div class="date-info-box">
                  
@@ -147,7 +147,7 @@
                  </div>
                  
                  <div class="box-right">
-                 <i  aria-hidden="true"></i>&nbsp; Buy Now
+                 <i  aria-hidden="true" ></i>&nbsp;<a href="{{novel.bookLink}}"> Buy Now</a>
                  </div>
                  
                  
@@ -161,9 +161,8 @@
             {% endif %}
             <!--end item-->
               
-                      
+          
                 
-                  </div>
                 </div>
               </div>
             </div>

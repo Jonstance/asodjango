@@ -42,5 +42,5 @@ def blog (request):
 
 def books (request):
     return render(request, 'main/books.html',{
-        'novels ': Books.objects.all()[:5]
-    })
+        'novels': Books.objects.all()[:5]    
+        })
