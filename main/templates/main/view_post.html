@@ -126,7 +126,6 @@
                       <span class="font-weight-3"></span></h2>
                   </div>
                 </div>
-                <div class="clearfix"></div>
                 <!--end title-->
                 
             
@@ -135,12 +134,12 @@
                 <div>
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="ce-feature-box-34 margin-bottom">
                       <div class="ce-post-img"> <a href="#">
-                        <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
                         </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
                       <div class="text-box">
-                        <h5 class="less-mar-1 title">{{ post.title }}</h5>
+                        <h2 class="less-mar-1 title">{{ post.title }}</h2>
+                        <br>
+                        <br>
                        <p>{{ post.body }}</p>
                        <div class="date-info-box">
                        
@@ -157,9 +156,12 @@
                        
                        </div>
                       </div>
-                    </div>
-                  </div>               
-                    <h2 class="subtitle"> Comments </h2>
+                  </div> 
+                  <br>
+                  <br>   
+                  <br>
+                  <br>           
+                    <h4 class="subtitle"> Comments </h4>
 
                     {%for comment in post.comments.all %}
                     <article class="media">
@@ -177,7 +179,7 @@
                     </div>
                 {% endfor %}
                 <br>
-                <h2 class="subtitle">Add Comment</h2>
+                <h5 class="subtitle">Add Comment</h5>
 
                 <form method="POST" action=".">
                     {% csrf_token %}
