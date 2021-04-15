@@ -76,11 +76,7 @@
 </style>
 
   </head>
-  <body>
-    <div class="wrapper-boxed ">
-        <div class="site-wrapper">
-            <div class="col-md-12 nopadding">
-                <div class="header-section style1 pin-style">
+  <body>       <div class="header-section style1 pin-style">
                   <div class="container">
                      <div class="mod-menu">
                         <div class="row">
@@ -133,25 +129,37 @@
                 <div>
                   <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
                     
-                    
-                  {% if books %}
-                  {% for book in books %}
-                    <div class="cbp-item web-design print"> <a href="{{ book.bookLink }}" class="cbp-caption cbp-lightbox" data-title="{{ book.bookName }}<br> at {{ book.bookAmount }}">
-                      <div class="cbp-caption-defaultWrap"> <img src=" {{ book.bookImage }} " alt=""> </div>
-                      <div class="cbp-caption-activeWrap primary">
-                        <div class="cbp-l-caption-alignCenter">
-                          <div class="cbp-l-caption-body">
-                            <div class="cbp-l-caption-title">View</div>
-                          </div>
-                        </div>
-                      </div>
-                      </a> </div>
-                      {% endfor %}
-                      {% else %}
-                      <h2>There are no books.</h2>
-                      {% endif %}
-                      
-                      
+            {% if novels %}
+            {% for novel in novels %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="ce-feature-box-34 margin-bottom">
+                <div class="ce-post-img"> <a href="{{ novel.bookLink }}">
+                  </a> <img src="{{ novel.bookImage }}" alt="" class="img-responsive"/> </div>
+                <div class="text-box">
+                  <h5 class="less-mar-1 title"><a href="{{ novel.bookLink }}">{{ novel.bookName }}</a></h5>
+                 <p>{{ novel.bookDetails  | slice:100  }}</p>
+                 <div class="date-info-box">
+                 
+                 
+                 <div class="box-left">
+                 <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
+                 {{novel.bookAmount}}
+                 </div>
+                 
+                 <div class="box-right">
+                 <i  aria-hidden="true"></i>&nbsp; Buy Now
+                 </div>
+                 
+                 
+                 </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>There are no books.</p>
+            {% endif %}
+            <!--end item-->
               
                       
                 

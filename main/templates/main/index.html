@@ -234,10 +234,10 @@
           <div class="ce-feature-box-34 margin-bottom">
             <div class="ce-post-img"> <a href="{% url 'view_post' post.slug %}">
               <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
+              </a> <img src="{{ post.fimage.url }}" alt="" class="img-responsive"/> </div>
             <div class="text-box">
               <h5 class="less-mar-1 title"><a href="{% url 'view_post' post.slug %}">{{ post.title }}</a></h5>
-             <p>{{ post.body | slice:100 }}</p>
+             <p>{{ post.body | slice:100 | safe }}</p>
              <div class="date-info-box">
              
              
@@ -307,23 +307,44 @@
           <br/>
         <div>
           <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
+     
             {% if books %}
-                  {% for book in books %}
-                    <div class="cbp-item web-design print"> <a href="{{ book.bookLink }}" class="cbp-caption cbp-lightbox" data-title="{{ book.bookName }}<br> at {{ book.bookAmount }}">
-                      <div class="cbp-caption-defaultWrap"> <img src=" {{ book.bookImage }} " alt=""> </div>
-                      <div class="cbp-caption-activeWrap primary">
-                        <div class="cbp-l-caption-alignCenter">
-                          <div class="cbp-l-caption-body">
-                            <div class="cbp-l-caption-title">View</div>
-                          </div>
-                        </div>
-                      </div>
-                      </a> </div>
-                      {% endfor %}
-                      {% else %}
-                      <h2>There are no books.</h2>
-                      {% endif %}
-                  
+            {% for book in books %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="ce-feature-box-34 margin-bottom">
+                <div class="ce-post-img"> <a href="{{ book.bookLink }}">
+                  </a> <img src="{{ book.bookImage }}" alt="" class="img-responsive"/> </div>
+                <div class="text-box">
+                  <h5 class="less-mar-1 title"><a href="{{ book.bookLink }}">{{ book.bookName }}</a></h5>
+                 <p>{{ book.bookDetails  | slice:100  }}</p>
+                 <div class="date-info-box">
+                 
+                 
+                 <div class="box-left">
+                 <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
+                 {{book.bookAmount}}
+                 </div>
+                 
+                 <div class="box-right">
+                 <i  aria-hidden="true"></i>&nbsp; Buy Now
+                 </div>
+                 
+                 
+                 </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>There are no books.</p>
+            {% endif %}
+            <!--end item-->
+           
+           
+           
+            
+           
+            
             
           
             </div>

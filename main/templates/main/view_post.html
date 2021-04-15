@@ -135,12 +135,14 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="ce-post-img"> <a href="#">
-                        </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
+                        </a> <img src="{{ post.fimage.url }}" alt="" class="img-responsive"/> </div>
+                        <br>
+                        <br>
                       <div class="text-box">
                         <h2 class="less-mar-1 title">{{ post.title }}</h2>
                         <br>
                         <br>
-                       <p>{{ post.body }}</p>
+                       <p>{{ post.body | safe }}</p>
                        <div class="date-info-box">
                        
                        
@@ -160,9 +162,9 @@
                   <br>
                   <br>   
                   <br>
-                  <br>           
+                  <br>            
                     <h4 class="subtitle"> Comments </h4>
-
+                    
                     {%for comment in post.comments.all %}
                     <article class="media">
                         <div class="media-content">

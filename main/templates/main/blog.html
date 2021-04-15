@@ -84,7 +84,7 @@
                 <div class="container">
                    <div class="mod-menu">
                       <div class="row">
-                      <div class="col-sm-2"> <a href=" {% static 'index.html' %} "  class="logo rehh style-2 title font-weight-5"> Akhere Sylvester Obumese </a> </div>
+                      <div class="col-sm-2"> <a href=" {% url 'index' %} "  class="logo rehh style-2 title font-weight-5"> Akhere Sylvester Obumese </a> </div>
                       <div class="col-sm-10">
                       <div class="main-nav">
                       <ul class="nav navbar-nav top-nav">
@@ -133,10 +133,10 @@
           <div class="ce-feature-box-34 margin-bottom">
             <div class="ce-post-img"> <a href="{% url 'view_post' post.slug %}">
               <div class="overlay"><i class="fa fa-plus" aria-hidden="true"></i> </div>
-              </a> <img src="{{ post.fimage }}" alt="" class="img-responsive"/> </div>
+              </a> <img src="{{ post.fimage.url }}" alt="" class="img-responsive"/> </div>
             <div class="text-box">
               <h5 class="less-mar-1 title"><a href="{% url 'view_post' post.slug %}">{{ post.title }}</a></h5>
-             <p>{{ post.body  | slice:100  }}</p>
+             <p>{{ post.body | slice:100 | safe }}</p>
              <div class="date-info-box">
              
              
@@ -159,6 +159,7 @@
         <p>There are no posts.</p>
         {% endif %}
         <!--end item-->
+        
        
        
        

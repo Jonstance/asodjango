@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -13,14 +14,13 @@ class Books(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    body = models.TextField()
-    fimage = models.FileField()
+    body = RichTextField(blank=True, null=True)
+    fimage = models.ImageField(upload_to="uploaded/")
     posted = models.DateField(db_index=True, auto_now_add=True)
 
 class Comment(models.Model):
     post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    email = models.EmailField()
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
     

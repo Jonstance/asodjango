@@ -18,7 +18,7 @@ def index (request):
 def view_post(request, slug):   
     post = Blog.objects.get(slug=slug)
 
-    if request.method == 'Post':
+    if request.method == 'POST':
         form = CommentForm(request.POST)
 
         if form.is_valid():
@@ -26,7 +26,6 @@ def view_post(request, slug):
             comment.post = post
             comment.save()
 
-            return redirect('view_post', slug=post.slug)
     else:
         form = CommentForm()
 
@@ -43,5 +42,5 @@ def blog (request):
 
 def books (request):
     return render(request, 'main/books.html',{
-        'books': Books.objects.all()
+        'novels ': Books.objects.all()[:5]
     })
