@@ -12,7 +12,7 @@ def index (request):
     books = Books.objects.all()
     return render(request, 'main/index.html', {
         'posts': posts,
-        'books': books
+        'novels': books
     })
 
 def view_post(request, slug):   

@@ -307,39 +307,38 @@
           <br/>
         <div>
      
-            {% if books %}
-            {% for book in books %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="ce-feature-box-34 margin-bottom">
-                <div class="ce-post-img"> <a href="{{ book.bookLink }}">
-                  </a> <img src="{{ book.bookImage }}" alt="" class="img-responsive"/> </div>
-                <div class="text-box">
-                  <h5 class="less-mar-1 title"><a href="{{ book.bookLink }}">{{ book.bookName }}</a></h5>
-                 <p>{{ book.bookDetails  | slice:100  }}</p>
-                 <div class="date-info-box">
-                 
-                 
-                 <div class="box-left">
-                 <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
-                 {{book.bookAmount}}
-                 </div>
-                 
-                 <div class="box-right">
-                 <i  aria-hidden="true"></i>&nbsp; Buy Now
-                 </div>
-                 
-                 
-                 </div>
-                </div>
+          {% if novels.all %}
+          {% for novel in novels.all %}
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="ce-feature-box-34 margin-bottom">
+              <div class="ce-post-img"> <a href="{{ novel.bookLink }}">
+                </a> <img src="{{ novel.bookImage.url }}" alt="" class="img-responsive"/> </div>
+              <div class="text-box">
+                <h5 class="less-mar-1 title"><a href="{{ novel.bookLink }}">{{ novel.bookName }}</a></h5>
+               <p>{{ novel.bookDetails  | slice:100  }}</p>
+               <div class="date-info-box">
+               
+               
+               <div class="box-left">
+               <i class="fa fa-money" aria-hidden="true"></i>&nbsp;
+               ₦ {{novel.bookAmount}}
+               </div>
+               
+               <div class="box-right">
+               <i  aria-hidden="true" ></i>&nbsp;<a href="{{ novel.bookLink }}"> Buy Now</a>
+               </div>
+               
+               
+               </div>
               </div>
             </div>
-            {% endfor %}
-            {% else %}
-            <p>There are no books.</p>
-            {% endif %}
-            <!--end item-->
-           
-           
+          </div>
+          {% endfor %}
+          {% else %}
+          <p>There are no books.</p>
+          {% endif %}
+          <!--end item-->
+            
            
             
            
