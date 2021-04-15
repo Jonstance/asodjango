@@ -14,7 +14,7 @@ class Books(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
     fimage = models.ImageField(upload_to="uploaded/")
     posted = models.DateField(db_index=True, auto_now_add=True)
 
