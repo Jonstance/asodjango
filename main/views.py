@@ -44,3 +44,25 @@ def books (request):
     return render(request, 'main/books.html',{
         'novels': Books.objects.all()[:5]    
         })
+
+def get_email (request):
+    if request.method == 'POST':
+        subform = SubForm(request.POST)
+
+        if subform.is_valid():
+            return HttpResponseRedirect('/index/')
+
+    else:
+        subform = SubForm()
+
+    return render(request, 'main/view_post.html', {'subform': subform})
+    return render(request, 'main/index.html', {'subform': subform})
+    return render(request, 'main/about.html', {'subform': subform})
+    return render(request, 'main/books.html', {'subform': subform})
+    return render(request, 'main/blog.html', {'subform': subform})
+
+
+
+
+
+    

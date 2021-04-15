@@ -215,8 +215,12 @@
             <h6>Subscribe To Us via E-mail</h6>
             <p>To get Daily and Weekly<br>
             Updates from Us, please Subscribe</p>
-            <input type="email" placeholder="Enter your e-mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-				<button class="btn btn-success mt-1">GET NOTIFIED</button>
+            <form method="POST" action=".">
+                {% csrf_token %}
+                {{ subform.as_p }}
+  
+                <button class="btn btn-success mt-1">GET NOTIFIED</button>
+        </form>
         </div>
         <div class="col-lg-3 mb-1">
             <p style="font-size: xx-small;">&copy;  JSoft Design Hub <br>2021 All Rights Reserved.</p>
