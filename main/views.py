@@ -3,14 +3,16 @@ from django.views import generic
 from django.views.generic import ListView, DetailView
 
 # Create your views here.
-from main.models import Blog
+from main.models import Blog, Books
 from.forms import CommentForm
 
 
 def index (request):
     posts = Blog.objects.all()
+    books = Books.objects.all()
     return render(request, 'main/index.html', {
-        'posts': posts
+        'posts': posts,
+        'books': books
     })
 
 def view_post(request, slug):   
@@ -40,4 +42,6 @@ def blog (request):
     })
 
 def books (request):
-    return render(request, 'main/books.html')
+    return render(request, 'main/books.html',{
+        'books': Books.objects.all()
+    })

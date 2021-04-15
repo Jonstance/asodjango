@@ -212,7 +212,7 @@
     
 <section class="section-side-image section-light sec-padding clearfix">
     <div class="img-holder col-md-12 col-sm-12 pull-left">
-      <div class="background-imgholder" style="background:url(http://via.placeholder.com/1500x1000);"><img class="nodisplay-image" src="http://via.placeholder.com/1500x1000" alt=""/> </div>
+      <div class="background-imgholder" style="background:url({% static 'assets/img/bg1.jpg' %});"><img class="nodisplay-image" src="{% static 'assets/img/bg1.jpg' %}" alt=""/> </div>
     </div>
     <div class="container">
      <div class="row">
@@ -307,52 +307,26 @@
           <br/>
         <div>
           <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
-            
+            {% if books %}
+                  {% for book in books %}
+                    <div class="cbp-item web-design print"> <a href="{{ book.bookLink }}" class="cbp-caption cbp-lightbox" data-title="{{ book.bookName }}<br> at {{ book.bookAmount }}">
+                      <div class="cbp-caption-defaultWrap"> <img src=" {{ book.bookImage }} " alt=""> </div>
+                      <div class="cbp-caption-activeWrap primary">
+                        <div class="cbp-l-caption-alignCenter">
+                          <div class="cbp-l-caption-body">
+                            <div class="cbp-l-caption-title">View</div>
+                          </div>
+                        </div>
+                      </div>
+                      </a> </div>
+                      {% endfor %}
+                      {% else %}
+                      <h2>There are no books.</h2>
+                      {% endif %}
+                  
             
           
-            <div class="cbp-item web-design print"> <a href="http://via.placeholder.com/1000x1000" class="cbp-caption cbp-lightbox" data-title="Bolt UI<br>by Tiberiu Neamu">
-              <div class="cbp-caption-defaultWrap"> <img src=" {% static 'assets/img/5.jpeg' %} " alt=""> </div>
-              <div class="cbp-caption-activeWrap primary">
-                <div class="cbp-l-caption-alignCenter">
-                  <div class="cbp-l-caption-body">
-                    <div class="cbp-l-caption-title">Buy Now</div>
-                  </div>
-                </div>
-              </div>
-              </a> </div>
-            <div class="cbp-item print motion"> <a href="http://via.placeholder.com/1000x1000" class="cbp-caption cbp-lightbox" data-title="Bolt UI<br>by Tiberiu Neamu">
-              <div class="cbp-caption-defaultWrap"> <img src=" {% static 'assets/img/6.jpeg' %} " alt=""> </div>
-              <div class="cbp-caption-activeWrap primary">
-                <div class="cbp-l-caption-alignCenter">
-                  <div class="cbp-l-caption-body">
-                    <div class="cbp-l-caption-title">Buy Now</div>
-                  </div>
-                </div>
-              </div>
-              </a> </div>
-              
-              <div class="cbp-item print motion"> <a href="http://via.placeholder.com/1000x1000" class="cbp-caption cbp-lightbox" data-title="Bolt UI<br>by Tiberiu Neamu">
-              <div class="cbp-caption-defaultWrap"> <img src=" {% static 'assets/img/10.jpeg' %} " alt=""> </div>
-              <div class="cbp-caption-activeWrap primary">
-                <div class="cbp-l-caption-alignCenter">
-                  <div class="cbp-l-caption-body">
-                    <div class="cbp-l-caption-title">Buy Now</div>
-                  </div>
-                </div>
-              </div>
-              </a> </div>
-              
-              <div class="cbp-item print motion"> <a href="http://via.placeholder.com/1000x1000" class="cbp-caption cbp-lightbox" data-title="Bolt UI<br>by Tiberiu Neamu">
-              <div class="cbp-caption-defaultWrap"> <img src=" {% static 'assets/img/11.jpeg' %} " alt=""> </div>
-              <div class="cbp-caption-activeWrap primary">
-                <div class="cbp-l-caption-alignCenter">
-                  <div class="cbp-l-caption-body">
-                    <div class="cbp-l-caption-title">Buy Now</div>
-                  </div>
-                </div>
-              </div>
-              </a> </div>
-          </div>
+            </div>
         </div>
       </div>
     </div>
